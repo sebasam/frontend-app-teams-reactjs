@@ -1,7 +1,14 @@
 import './../assets/styles/nav.css'
-import { Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 
 const Navbar = () => {
+    const handleClassActive = ({ isActive }) => {
+        if(isActive){
+            return "myActive nav-link text-white"
+        }else{
+            return "nav-link text-white"
+        }
+    }
     let activeStyle = {
         background: "#33ffcc",
         borderRadius: "50%",
@@ -16,10 +23,10 @@ const Navbar = () => {
                 </button>
                 <div className="collapse navbar-collapse" id="navbarNavAltMarkup">
                     <div className="navbar-nav">
-                        <Link to='/' style={ activeStyle } className="nav-link active" aria-current="page">Home</Link>
-                        <Link to='/categories' className="nav-link text-white" >Categorías</Link>
-                        <Link to='/teams' className="nav-link text-white" >Equipos</Link>
-                        <Link to='/events' className="nav-link text-white">Eventos</Link>
+                        <NavLink to='/' end className={ ({ isActive }) => isActive ? 'myActive nav-link text-white' : 'nav-link text-white' } aria-current="page">Home</NavLink>
+                        <NavLink to='/categories' className={ ({ isActive }) => isActive ? 'myActive nav-link text-white' : 'nav-link text-white' } >Categorías</NavLink>
+                        <NavLink to='/teams' className={ ({ isActive }) => isActive ? 'myActive nav-link text-white' : 'nav-link text-white' } >Equipos</NavLink>
+                        <NavLink to='/events' className={ ({ isActive }) => isActive ? 'myActive nav-link text-white' : 'nav-link text-white' }>Eventos</NavLink>
                     </div>
                 </div>
                 </div>

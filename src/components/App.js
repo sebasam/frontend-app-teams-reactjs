@@ -20,10 +20,10 @@ export const App = () => {
             <Router>
                 <Navbar />
                 <Routes>
-                    <Route path="/" exact element={ <Home /> } />
-                    <Route path="/teams" exact element={ <Teams /> } />
-                    <Route path="/categories" exact element={ <Categories /> } />
-                    <Route path="/events" exact element={ <Events /> } />
+                    <Route path="/"  element={ <Home /> } />
+                    <Route path="/teams"  element={ <Teams /> } />
+                    <Route path="/categories"  element={ <Categories /> } />
+                    <Route path="/events"  element={ <Events /> } />
                 </Routes>
                 <div>
                 </div>
