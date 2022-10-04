@@ -1,8 +1,10 @@
 import React from 'react'
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import { Categories } from './Categories';
 import { Home } from "./Home";
 import Navbar from "./navbar";
 import { Teams } from "./Teams";
+import { Events } from './Events';
 
 export const App = () => {
     let container = {
@@ -18,8 +20,10 @@ export const App = () => {
             <Router>
                 <Navbar />
                 <Routes>
-                    <Route  path="/" exact element={ <Home /> } />
-                    <Route  path="/teams" exact element={ <Teams /> } />
+                    <Route path="/" exact element={ <Home /> } />
+                    <Route path="/teams" exact element={ <Teams /> } />
+                    <Route path="/categories" exact element={ <Categories /> } />
+                    <Route path="/events" exact element={ <Events /> } />
                 </Routes>
                 <div>
                 </div>
