@@ -2,18 +2,6 @@ import './../assets/styles/nav.css'
 import { NavLink } from 'react-router-dom';
 
 const Navbar = () => {
-    const handleClassActive = ({ isActive }) => {
-        if(isActive){
-            return "myActive nav-link text-white"
-        }else{
-            return "nav-link text-white"
-        }
-    }
-    let activeStyle = {
-        background: "#33ffcc",
-        borderRadius: "50%",
-        color: "#7300e6"       
-    }
     return(
         <nav className="navbar navbar-expand-lg bg-transparent">
         <div className="container-fluid">
