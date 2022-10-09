@@ -18,7 +18,7 @@ export const GetCategoriesList = (props) => {
         .catch(err => console.log(err))
 
     return(
-        <select defaultValue={ props.default }  className="form-select" aria-label="categories__select">
+        <select onChange={ props.change } defaultValue={ props.default }  className="form-select" aria-label="categories__select">
             <option disabled>{ props.default }</option>
             { 
                 categories.map(data => {
