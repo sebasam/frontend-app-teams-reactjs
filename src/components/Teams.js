@@ -1,8 +1,9 @@
-import React, { useState, useRef } from 'react'
+import React, { useState, useRef, useEffect } from 'react'
 import './../assets/styles/teams.css'
 import { GetCategoriesList } from './../components/teamscomponents/getCategory'
 import uploadService from '../services/uploadService'
 import { GetTeams } from './homecomponents/getTeams'
+import { GetTeamsByCategory } from './teamscomponents/getTeamsByCategory'
 
 
 export const Teams = () => {
@@ -10,12 +11,14 @@ export const Teams = () => {
   const [image, setImage] = useState()
   const [category, setCategory] = useState('')
   const refName = useRef(null)
+  const refCategory = useRef(null)
 
   const handleSubmit = (event) => {
     event.preventDefault()    
     uploadService.sendImages(name, image, category)
       .then(result => {
         console.log(result)
+        console.log(refCategory)
     })
   }
     return (
@@ -30,7 +33,7 @@ export const Teams = () => {
         <button type="submit" className="btn btn-danger">Crear Equipo</button>
       </form>
       <div className='teams__generate'>
-        <GetTeams />
+        <GetTeamsByCategory  category={ category } />
       </div>
     </div>
   )

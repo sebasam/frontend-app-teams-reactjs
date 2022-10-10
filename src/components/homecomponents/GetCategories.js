@@ -1,21 +1,27 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { url } from '../Const'
 
 export const GetCategories = () => {
     const[categories, setCategories] = useState([])
 
-    const requestOptions = {
-        method: 'GET',
-        headers: {
-            "Content-Type": "application/json"
+    const getCategories = () => {
+        const requestOptions = {
+            method: 'GET',
+            headers: {
+                "Content-Type": "application/json"
+            }
         }
+        fetch(`${ url }/api/categories`, requestOptions)
+            .then(res => res.json())
+            .then(data => {
+                setCategories(data.category)        
+            })
+            .catch(err => console.log(err))
     }
-    fetch(`${ url }/api/categories`, requestOptions)
-        .then(res => res.json())
-        .then(data => {
-            setCategories(data.category)        
-        })
-        .catch(err => console.log(err))
+
+    useEffect(() => {
+        getCategories()
+    })
 
     return(
         <div id='categories'>

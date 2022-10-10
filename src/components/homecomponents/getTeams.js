@@ -1,22 +1,28 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { url } from '../Const'
 import { GetImage } from './GetImage'
 
 export const GetTeams = () => {
     const[teams, setTeams] = useState([])
 
-    const requestOptions = {
-        method: 'GET',
-        headers: {
-            "Content-Type": "application/json"
+    const getAllTeams = () => {
+        const requestOptions = {
+            method: 'GET',
+            headers: {
+                "Content-Type": "application/json"
+            }
         }
+        fetch(`${ url }/api/teams`, requestOptions)
+            .then(res => res.json())
+            .then(data => {
+                setTeams(data.team)        
+            })
+            .catch(err => console.log(err))
     }
-    fetch(`${ url }/api/teams`, requestOptions)
-        .then(res => res.json())
-        .then(data => {
-            setTeams(data.team)        
-        })
-        .catch(err => console.log(err))
+
+    useEffect(() => {
+        getAllTeams()
+    })
 
     return(
         <div id='teams'>
