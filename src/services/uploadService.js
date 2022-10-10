@@ -10,7 +10,11 @@ class UploadService {
         form.append('category', category)
 
         return axios.post(`${ url }/api/teams`, form)
-    }    
+    }
+    
+    getTeamImage(name) {
+        return axios.get(`${ url }/api/teams/${ name }`)
+    }
 }
 
 export default new UploadService
