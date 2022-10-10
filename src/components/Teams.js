@@ -1,9 +1,8 @@
 import React, { useState, useRef } from 'react'
 import './../assets/styles/teams.css'
 import { GetCategoriesList } from './../components/teamscomponents/getCategory'
-import { url } from './../components/Const'
 import uploadService from '../services/uploadService'
-import { GetImage } from './homecomponents/GetImage'
+import { GetTeams } from './homecomponents/getTeams'
 
 
 export const Teams = () => {
@@ -11,8 +10,6 @@ export const Teams = () => {
   const [image, setImage] = useState()
   const [category, setCategory] = useState('')
   const refName = useRef(null)
-
-  const [path, setPath] = useState('http://localhost:3001/public/images/PSG')
 
   const handleSubmit = (event) => {
     event.preventDefault()    
@@ -32,6 +29,9 @@ export const Teams = () => {
         <input onChange={ (e) => setImage(e.target.files[0]) } name='image' className='form-control' id='file' type="file" />
         <button type="submit" className="btn btn-danger">Crear Equipo</button>
       </form>
+      <div className='teams__generate'>
+        <GetTeams />
+      </div>
     </div>
   )
 }

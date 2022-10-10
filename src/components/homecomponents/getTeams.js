@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import { url } from '../Const'
+import { GetImage } from './GetImage'
 
 export const GetTeams = () => {
     const[teams, setTeams] = useState([])
@@ -21,7 +22,8 @@ export const GetTeams = () => {
         <div id='teams'>
             { 
                 teams.map(data => {
-                    return <span key={ data._id }> { data.name } </span>
+                    return <span key={ data._id }> <GetImage name={ data.name } />  { data.name } </span>
+                    
                 }) 
             }
         </div>

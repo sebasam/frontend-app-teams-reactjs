@@ -1,22 +1,32 @@
-import { React, useState } from 'react'
+import { React, useState, useEffect } from 'react'
 import { url } from '../Const'
 
 export const GetImage = (props) => {
-    const [path, setPath] = useState('')
-    const requestOptions = {
-        method: 'GET',
-        headers: {
-            "Content-Type": "image/png"
-        }
+    let style = {
+        width: '50px'
     }
-    fetch(`${ url }/api/teams/${ props.name }`, requestOptions)
-        .then(res => res)
-        .then(data => {
-            setPath(data.url)        
-        })
-        .catch(err => console.log(err))
+    const [path, setPath] = useState('')
+    const chargeImages = () => {
+        const requestOptions = {
+            method: 'GET',
+            headers: {
+                "Content-Type": "image/png"
+            }
+        }
+        fetch(`${ url }/api/teams/${ props.name }`, requestOptions)
+            .then(res => res)
+            .then(data => {
+                setPath(data.url)        
+            })
+            .catch(err => console.log(err)) 
+    }
+
+    useEffect(() => {
+        chargeImages()
+    },[])
+
+    return (
+        <img style={ style } src={path} />
+    )   
     
-    return <>
-        <img src={path} />   
-    </>
 }
