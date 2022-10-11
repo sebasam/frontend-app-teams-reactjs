@@ -3,14 +3,31 @@
     width: 100%;
     display: grid;
     grid-template-columns: repeat(2, 50%);
-    grid-template-rows: 100%;
+    grid-template-rows: repeat(auto-fit, auto);
     justify-items: center;
     align-items: center;
 }
+#container__delete-team {
+    display: grid;
+    grid-template-columns: 100%;
+    grid-template-rows: repeat(2, 50%);
+    row-gap: 1rem;
+}
 .categoryById {
     display: grid;
-    grid-template-columns: repeat(2, 50%);
-    grid-template-rows: 100px;
+    grid-template-columns: repeat(3, 33.33%);
+    grid-template-rows: repeat(auto-fit, 100px);
+    width: 400px;
+    justify-items: center;
+    height: 300px;
+    overflow-y: auto;
+}
+.categoryById > div{
+    display: grid;
+    grid-template-columns: 100%;
+    grid-template-rows: 20% 80%;
+    width: 100%;
+    justify-items: center;
 }
 form {
     display: grid;

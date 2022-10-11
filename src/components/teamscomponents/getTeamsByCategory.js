@@ -28,8 +28,8 @@ export const GetTeamsByCategory = (props) => {
         <div className='categoryById'>
             { 
             team.map((data) => {
-                return <div key={ data._id }>
-                    <h6> { data.name } </h6>
+                return <div>
+                    <h6 onClick={ props.click } data-key={ data._id } className='text-white'> { data.name } </h6>
                     <GetImage name={ data.name } />
                 </div>
             }) 
