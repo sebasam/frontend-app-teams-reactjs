@@ -3,7 +3,7 @@ import './../assets/styles/teams.css'
 import { GetCategoriesList } from './../components/teamscomponents/getCategory'
 import uploadService from '../services/uploadService'
 import { GetTeamsByCategory } from './teamscomponents/getTeamsByCategory'
-import { DeleteTeam } from './homecomponents/DeleteTeam'
+import { DeleteTeam } from './teamscomponents/DeleteTeam'
 import Swal from 'sweetalert2'
 
 
@@ -47,6 +47,9 @@ export const Teams = () => {
       </div>  
       <div className='delete__container-teams'>
         <DeleteTeam id={ myId } />
+      </div>
+      <div className='update__container-teams'>
+        
       </div>    
     </div>
   )

@@ -20,7 +20,7 @@ export const GetTeamsByCategory = (props) => {
             .catch(err => console.log(err))
     }
 
-    useLayoutEffect(() => {
+    useEffect(() => {
         getByCategory()
     },[props.category])
 

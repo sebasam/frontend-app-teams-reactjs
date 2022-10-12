@@ -1,7 +1,14 @@
 import React from 'react'
+import './../assets/styles/categories.css'
 
 export const Categories = () => {
+
     return (
-        <div>Categories</div>
+        <div id='categories__container'>
+            <form>
+                <input placeholder='Nombre de categoría' />
+                <button>Crear Categoría</button>
+            </form>
+        </div>
     )
 }
