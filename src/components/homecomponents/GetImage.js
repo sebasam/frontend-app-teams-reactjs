@@ -5,7 +5,7 @@ export const GetImage = (props) => {
     let style = {
         width: '50px'
     }
-    const [path, setPath] = useState('')
+    const [path, setPath] = useState('')    
     const chargeImages = () => {
         const requestOptions = {
             method: 'GET',
@@ -23,7 +23,7 @@ export const GetImage = (props) => {
 
     useEffect(() => {
         chargeImages()
-    },[])
+    },[props.name])
 
     return (
         <img style={ style } src={path} />

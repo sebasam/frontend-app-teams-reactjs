@@ -1,4 +1,4 @@
-import { React, useEffect, useState } from 'react'
+import { React, useEffect, useLayoutEffect, useState } from 'react'
 import { url } from '../Const'
 import { GetImage } from '../homecomponents/GetImage'
 
@@ -20,16 +20,16 @@ export const GetTeamsByCategory = (props) => {
             .catch(err => console.log(err))
     }
 
-    useEffect(() => {
+    useLayoutEffect(() => {
         getByCategory()
-    })
+    },[props.category])
 
     return (
         <div className='categoryById'>
             { 
             team.map((data) => {
                 return <div>
-                    <h6 onClick={ props.click } data-key={ data._id } className='text-white'> { data.name } </h6>
+                    <h6 onClick={ props.click } data-key={ data.name } className='text-white'> { data.name } </h6>
                     <GetImage name={ data.name } />
                 </div>
             }) 

@@ -11,8 +11,7 @@ export const Teams = () => {
   const [name, setName] = useState('')
   const [image, setImage] = useState()
   const [category, setCategory] = useState('')
-  const [ myId, setId ] = useState('')
-  
+  const [ myId, setId ] = useState('') 
 
   const handleSubmit = (event) => {
     event.preventDefault()  
@@ -22,7 +21,7 @@ export const Teams = () => {
           'Excellent!',
           'Team Created!',
           'success'
-        )       
+        )
       })
       .catch(error => {
         Swal.fire(

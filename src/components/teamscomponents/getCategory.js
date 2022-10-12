@@ -14,14 +14,15 @@ export const GetCategoriesList = (props) => {
         fetch(`${ url }/api/categories`, requestOptions)
             .then(res => res.json())
             .then(data => {
-                setCategories(data.category)        
+                setCategories(data.category)
+                console.log(data)       
             })
             .catch(err => console.log(err))
     }
 
     useEffect(() => {
         getCategories()
-    })
+    }, [])
 
     return(
         <select onChange={ props.change } defaultValue={ props.default }  className="form-select" aria-label="categories__select">
