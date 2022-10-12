@@ -1,12 +1,10 @@
-import React, { useEffect, useState} from 'react'
-import { url } from '../Const'
-import Swal from 'sweetalert2'
+import React from 'react'
 
-export const DeleteTeam = (props) => {
+export const UpdateTeam = (props) => {
     const[myId, setId] = useState('') 
-    const deleteMyTeam = () => {         
+    const updateMyTeam = () => {         
         const requestOptions = {
-            method: 'DELETE'            
+            method: 'PUT'           
         }             
         fetch(`${ url }/api/teams/delete/${ myId }`, requestOptions)
             .then(res => res.json())
@@ -29,12 +27,9 @@ export const DeleteTeam = (props) => {
             })
     }
 
-    useEffect(() => {
-        setId(props.id)
-    }, [props.id])
-
     return(
-        <div id='container__delete-team'>
+        <div id='container__update-team'>
+            <input value={ myId } placeholder='Nombre de equipo a eliminar' className='form-control' />
             <input value={ myId } placeholder='Nombre de equipo a eliminar' className='form-control' />
             <button onClick={ deleteMyTeam } className='btn btn-primary'>Eliminar Equipo</button>
         </div>
