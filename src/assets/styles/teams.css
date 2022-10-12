@@ -13,6 +13,12 @@
     grid-template-rows: repeat(2, 50%);
     row-gap: 1rem;
 }
+#container__update-team {
+    display: grid;
+    grid-template-columns: 100%;
+    grid-template-rows: repeat(3, 30%);
+    row-gap: 1rem;
+}
 .categoryById {
     display: grid;
     grid-template-columns: repeat(3, 33.33%);
