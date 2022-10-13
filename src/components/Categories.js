@@ -1,11 +1,14 @@
-import React, { useRef } from 'react'
+import React, { useRef, useState } from 'react'
 import './../assets/styles/categories.css'
 import { url } from './Const'
 import Swal from 'sweetalert2'
+import { GetCategories } from './homecomponents/GetCategories'
+import { DeleteCategory } from './categoriescomponents/DeleteCategory'
 
 
 export const Categories = () => {
     const refName = useRef(null)
+    const [ myId, setMyId ] = useState('')
 
     const handleSubmit = (event) => {
         event.preventDefault()
@@ -50,10 +53,10 @@ export const Categories = () => {
                 <button type='submit' className='btn btn-danger'>Crear Categoría</button>
             </form>
             <div id='categories__generate'>
-
+                <GetCategories click={ (e) => { setMyId(e.target.getAttribute('data-key')) } } />
             </div>
             <div id='delete__container--categories'>
-            
+                <DeleteCategory  myId={ myId } />
             </div>
             <div id='update__container--categories'>
             

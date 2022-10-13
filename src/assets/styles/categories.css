@@ -7,3 +7,14 @@
     justify-items: center;
     align-items: center;
 }
+#categories__generate {
+    height: 300px;
+    width: 200px;
+    color: #FFF;
+}
+.category__delete--component {
+    display: grid;
+    grid-template-columns: 100%;
+    grid-template-rows: repeat(2, 50%);
+    row-gap: 1rem;
+}
