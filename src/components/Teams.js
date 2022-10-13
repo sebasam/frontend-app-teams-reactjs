@@ -5,16 +5,18 @@ import uploadService from '../services/uploadService'
 import { GetTeamsByCategory } from './teamscomponents/getTeamsByCategory'
 import { DeleteTeam } from './teamscomponents/DeleteTeam'
 import Swal from 'sweetalert2'
+import { UpdateTeam } from './teamscomponents/UpdateTeam'
 
 
 export const Teams = () => {
   const [name, setName] = useState('')
   const [image, setImage] = useState()
   const [category, setCategory] = useState('')
-  const [ myId, setId ] = useState('') 
+  const [ myId, setId ] = useState('')
+  const [ newName, setNewName] = useState('')
 
   const handleSubmit = (event) => {
-    event.preventDefault()  
+    event.preventDefault()
     uploadService.sendImages(name, image, category)
       .then(result => {
         Swal.fire(
@@ -22,6 +24,7 @@ export const Teams = () => {
           'Team Created!',
           'success'
         )
+        setNewName('')
       })
       .catch(error => {
         Swal.fire(
@@ -49,7 +52,7 @@ export const Teams = () => {
         <DeleteTeam id={ myId } />
       </div>
       <div className='update__container-teams'>
-        
+        <UpdateTeam change={ (e) => { setNewName(e.target.value) } } myname={ newName }  id={ myId } />
       </div>    
     </div>
   )

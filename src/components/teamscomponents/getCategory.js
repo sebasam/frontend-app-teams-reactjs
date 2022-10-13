@@ -14,8 +14,7 @@ export const GetCategoriesList = (props) => {
         fetch(`${ url }/api/categories`, requestOptions)
             .then(res => res.json())
             .then(data => {
-                setCategories(data.category)
-                console.log(data)       
+                setCategories(data.category)       
             })
             .catch(err => console.log(err))
     }
