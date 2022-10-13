@@ -1,0 +1,9 @@
+#events__container {
+    height: 90%;
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(2, 50%);
+    grid-template-rows: repeat(auto-fit, auto);
+    justify-items: center;
+    align-items: center;
+}
