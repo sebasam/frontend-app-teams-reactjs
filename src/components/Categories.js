@@ -17,36 +17,37 @@ export const Categories = () => {
             body: JSON.stringify({ name: refName.current.value })         
         }
         fetch(`${ url }/api/categories`, requestOptions)
-            .then(res => { res.json() })
+            .then(res => res.json())
             .then(data => { 
                 if(data.ok) {
                     Swal.fire(
-                        'Excellent!',
+                        'Done!',
                         `${ data.msg }`,
                         'success'
                     )
                 } else {
                     Swal.fire(
                         'Ups!!',
-                        `${ data.msg }`,
+                        'Check fields! or category exist!',
                         'error'
                     )
                 }
-                })
-                .catch(error => {
-                    Swal.fire(
-                        'Ups!!',
-                        'Check the fields',
-                        'error'
-                    )
-                })
+            })
+            .catch(error => {
+                console.log(error)
+                Swal.fire(
+                    'Ups!!',
+                    'Check the fields',
+                    'error'
+                )
+            })
     }
 
     return (
         <div id='categories__container'>
-            <form>
+            <form onSubmit={ handleSubmit }>
                 <input ref={ refName } className='form-control' placeholder='Nombre de categoría' />
-                <button onClick={ handleSubmit } type='submit' className='btn btn-danger'>Crear Categoría</button>
+                <button type='submit' className='btn btn-danger'>Crear Categoría</button>
             </form>
             <div id='categories__generate'>
 
