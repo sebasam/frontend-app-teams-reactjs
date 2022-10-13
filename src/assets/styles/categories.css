@@ -1,5 +1,5 @@
 #categories__container {
-    height: 90%;
+    height: 80% !important;
     width: 100%;
     display: grid;
     grid-template-columns: repeat(2, 50%);
@@ -8,9 +8,15 @@
     align-items: center;
 }
 #categories__generate {
-    height: 300px;
+    height: 250px;
     width: 200px;
     color: #FFF;
+}
+#category__update--component {
+    display: grid;
+    grid-template-columns: 100%;
+    grid-template-rows: repeat(3, 30%);
+    row-gap: 1rem;
 }
 .category__delete--component {
     display: grid;

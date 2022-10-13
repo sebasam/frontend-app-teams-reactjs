@@ -1,14 +1,16 @@
-import React, { useRef, useState } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import './../assets/styles/categories.css'
 import { url } from './Const'
 import Swal from 'sweetalert2'
 import { GetCategories } from './homecomponents/GetCategories'
 import { DeleteCategory } from './categoriescomponents/DeleteCategory'
+import { UpdateCategory } from './categoriescomponents/UpdateCategory'
 
 
 export const Categories = () => {
     const refName = useRef(null)
     const [ myId, setMyId ] = useState('')
+    const [ newName, setNewName ] = useState('')
 
     const handleSubmit = (event) => {
         event.preventDefault()
@@ -46,6 +48,7 @@ export const Categories = () => {
             })
     }
 
+    
     return (
         <div id='categories__container'>
             <form onSubmit={ handleSubmit }>
@@ -59,7 +62,7 @@ export const Categories = () => {
                 <DeleteCategory  myId={ myId } />
             </div>
             <div id='update__container--categories'>
-            
+                <UpdateCategory change={ (e) => { setNewName(e.target.value) } } myName={ newName }  myId={ myId }  />
             </div>
         </div>        
     )
