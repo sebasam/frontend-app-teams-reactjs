@@ -7,3 +7,15 @@
     justify-items: center;
     align-items: center;
 }
+#event__update--component {
+    display: grid;
+    grid-template-columns: 100%;
+    grid-template-rows: repeat(3, 30%);
+    row-gap: 1rem;
+}
+#events__generate {
+    height: 250px;
+    width: 100%;
+    color: #FFF;
+    overflow-y: auto;
+}

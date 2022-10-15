@@ -1,8 +1,10 @@
 import React, { useState } from 'react'
 import { GetTeamsList } from './eventscomponents/GetTeamsList'
+import { UpdateEvent } from './eventscomponents/UpdateEvents'
 import './../assets/styles/events.css'
 import Swal from 'sweetalert2'
 import { url } from './Const'
+import { GetEvents } from './homecomponents/GetEvents'
 
 export const Events = () => {
     const [team1, setTeam1] = useState('')
@@ -10,6 +12,7 @@ export const Events = () => {
     const [category1, setCategory1] = useState('')
     const [category2, setCategory2] = useState('')
     const [myDate, setMyDate] = useState('')
+    const [myId, setMyId] = useState('')
 
     const handleEvent = (e, set, set2) => {
         let option = e.target.selectedIndex
@@ -64,6 +67,15 @@ export const Events = () => {
                 <input onChange={ (e) => { setMyDate(e.target.value) } } type='datetime-local' className='form-control' />
                 <button type='submit' className='btn btn-danger'>Crear Evento</button>
             </form>
+            <div id='events__generate'>
+                <GetEvents click={ (e) => { setMyId(e.target.getAttribute('data-key')) } } />
+            </div>
+            <div id='delete__container-events'>
+                <UpdateEvent change={ (e) => { setMyDate(e.target.value) } } myId={ myId } myDate={ myDate } />
+            </div>
+            <div id='update__container-events'>
+
+            </div>
         </div>
     )
 }
