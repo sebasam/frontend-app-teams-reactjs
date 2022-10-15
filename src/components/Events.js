@@ -47,8 +47,9 @@ export const Events = () => {
                         'Success',
                         'Event Created!',
                         'success'
-                    )
-                    window.location.reload()
+                    ).then(() => {
+                        window.location.reload()
+                    })
                 })
                 .catch((error) => {
                     Swal.fire(

@@ -17,9 +17,9 @@ export const DeleteCategory = (props) => {
                         'Done!',
                         `${ data.msg }`,
                         'success'
-                    )
-                    setMyId('')
-                    window.location.reload()
+                    ).then(() => {
+                        window.location.reload()
+                    })
                 } else {
                     Swal.fire(
                         'Ups!!',

@@ -20,8 +20,9 @@ export const DeleteEvent = (props) => {
                     'Excellent!',
                     `${ data.msg }`,
                     'success'
-                )
-                window.location.reload()     
+                ).then(() => {
+                    window.location.reload()
+                })     
             })
             .catch(err => {
                 Swal.fire(
