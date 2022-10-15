@@ -25,6 +25,7 @@ export const Teams = () => {
           'success'
         )
         setNewName('')
+        window.location.reload()
       })
       .catch(error => {
         Swal.fire(

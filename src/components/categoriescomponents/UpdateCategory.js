@@ -22,7 +22,8 @@ export const UpdateCategory = (props) => {
                     'Excellent!',
                     `${ data.msg }`,
                     'success'
-                )     
+                )
+                window.location.reload()  
             })
             .catch(err => {
                 Swal.fire(

@@ -19,3 +19,9 @@
     color: #FFF;
     overflow-y: auto;
 }
+#event__delete--component {
+    display: grid;
+    grid-template-columns: 100%;
+    grid-template-rows: repeat(2, 50%);
+    row-gap: 1rem;
+}

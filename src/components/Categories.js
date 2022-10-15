@@ -30,6 +30,7 @@ export const Categories = () => {
                         `${ data.msg }`,
                         'success'
                     )
+                    window.location.reload()
                 } else {
                     Swal.fire(
                         'Ups!!',

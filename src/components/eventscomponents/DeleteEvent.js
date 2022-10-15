@@ -2,18 +2,16 @@ import React, { useState, useEffect } from "react";
 import Swal from "sweetalert2";
 import { url } from "../Const";
 
-export const UpdateEvent = (props) => {
+export const DeleteEvent = (props) => {
     const[myId, setId] = useState('')
-    const updateMyEvent = () => {  
-        console.log(props.myName)
+    const deleteMyEvent = () => {  
         const requestOptions = {
-            method: 'PUT',
+            method: 'DELETE',
             headers: {
                 "Content-Type": "application/json"
-            },
-            body: JSON.stringify({ gameDate: props.myDate})           
+            }           
         }        
-        fetch(`${ url }/api/events/update/${ myId }`, requestOptions)
+        fetch(`${ url }/api/events/delete/${ myId }`, requestOptions)
             .then(res => res.json())
             .then(data => {
                 console.log(data)
@@ -40,10 +38,9 @@ export const UpdateEvent = (props) => {
     }, [props.myId])
 
     return(
-        <div id='event__update--component'>
-            <input value={ myId } placeholder='Id de Evento a actualizar' className='form-control' />
-            <input onChange={ props.change } type='datetime-local' className='form-control' />
-            <button onClick={ updateMyEvent } className='btn btn-primary'>Actualizar Evento</button>
+        <div id='event__delete--component'>
+            <input value={ myId } placeholder='Id de Evento a eliminar' className='form-control' />
+            <button onClick={ deleteMyEvent } className='btn btn-primary'>Eliminar Evento</button>
         </div>
     )
 }
