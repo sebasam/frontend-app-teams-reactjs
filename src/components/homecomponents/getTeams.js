@@ -22,7 +22,7 @@ export const GetTeams = () => {
 
     useEffect(() => {
         getAllTeams()
-    })
+    }, [])
 
     return(
         <div id='teams'>

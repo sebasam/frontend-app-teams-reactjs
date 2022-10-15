@@ -1,0 +1,21 @@
+#events__container {
+    height: 90%;
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(2, 50%);
+    grid-template-rows: repeat(auto-fit, auto);
+    justify-items: center;
+    align-items: center;
+}
+#event__update--component {
+    display: grid;
+    grid-template-columns: 100%;
+    grid-template-rows: repeat(3, 30%);
+    row-gap: 1rem;
+}
+#events__generate {
+    height: 250px;
+    width: 100%;
+    color: #FFF;
+    overflow-y: auto;
+}

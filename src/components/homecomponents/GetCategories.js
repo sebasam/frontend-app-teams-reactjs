@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import { url } from '../Const'
 
-export const GetCategories = () => {
+export const GetCategories = (props) => {
     const[categories, setCategories] = useState([])
 
     const getCategories = () => {
@@ -20,14 +20,14 @@ export const GetCategories = () => {
     }
 
     useEffect(() => {
-        getCategories()
-    })
+        getCategories()        
+    }, [])
 
     return(
         <div id='categories'>
             { 
                 categories.map(data => {
-                    return <span key={ data._id }> { data.name } </span>
+                    return <span onClick={ props.click } data-key={ data._id } key={ data.name }> { data.name } </span>
                 }) 
             }
         </div>
