@@ -28,7 +28,10 @@ export const GetTeams = () => {
         <div id='teams'>
             { 
                 teams.map(data => {
-                    return <span key={ data._id }> <GetImage name={ data.name } />  { data.name } </span>
+                    return <div className='span'>
+                        <GetImage name={ data.name } /> 
+                        <h6 key={ data._id }>   { data.name } </h6>
+                    </div>
                     
                 }) 
             }

@@ -5,6 +5,7 @@ import './../assets/styles/events.css'
 import Swal from 'sweetalert2'
 import { url } from './Const'
 import { GetEvents } from './homecomponents/GetEvents'
+import { DeleteEvent } from './eventscomponents/DeleteEvent'
 
 export const Events = () => {
     const [team1, setTeam1] = useState('')
@@ -28,33 +29,37 @@ export const Events = () => {
                 'Teams in differents categories, cannot be play VS',
                 'error'
             )
+        } else {
+            const requestOptions = {
+                method: 'POST',
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify({ team1: team1, team2: team2, category: category1, gameDate: myDate })
+            }
+            fetch(`${ url }/api/events`, requestOptions)
+                .then((res) => {
+                    res.json()
+                })
+                .then((data) => {
+                    console.log(data)
+                    Swal.fire(
+                        'Success',
+                        'Event Created!',
+                        'success'
+                    ).then(() => {
+                        window.location.reload()
+                    })
+                })
+                .catch((error) => {
+                    Swal.fire(
+                        'Error',
+                        `${ error }`,
+                        'error'
+                    )
+            })
         }
-        const requestOptions = {
-            method: 'POST',
-            headers: {
-                "Content-Type": "application/json"
-            },
-            body: JSON.stringify({ team1: team1, team2: team2, category: category1, gameDate: myDate })
-        }
-        fetch(`${ url }/api/events`, requestOptions)
-            .then((res) => {
-                res.json()
-            })
-            .then((data) => {
-                console.log(data)
-                Swal.fire(
-                    'Success',
-                    'Event Created!',
-                    'success'
-                )
-            })
-            .catch((error) => {
-                Swal.fire(
-                    'Error',
-                    `${ error }`,
-                    'error'
-                )
-            })
+        
     }
 
     return (
@@ -71,10 +76,10 @@ export const Events = () => {
                 <GetEvents click={ (e) => { setMyId(e.target.getAttribute('data-key')) } } />
             </div>
             <div id='delete__container-events'>
-                <UpdateEvent change={ (e) => { setMyDate(e.target.value) } } myId={ myId } myDate={ myDate } />
+                <DeleteEvent myId={ myId } />
             </div>
             <div id='update__container-events'>
-
+                <UpdateEvent change={ (e) => { setMyDate(e.target.value) } } myId={ myId } myDate={ myDate } />
             </div>
         </div>
     )

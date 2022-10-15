@@ -1,4 +1,3 @@
-import React, { useState } from 'react'
 import './../assets/styles/home.css'
 
 import { GetCategories } from './homecomponents/GetCategories'

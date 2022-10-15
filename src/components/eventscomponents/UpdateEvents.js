@@ -22,7 +22,9 @@ export const UpdateEvent = (props) => {
                     'Excellent!',
                     `${ data.msg }`,
                     'success'
-                )     
+                ).then(() => {
+                    window.location.reload()
+                })                    
             })
             .catch(err => {
                 Swal.fire(
@@ -39,7 +41,7 @@ export const UpdateEvent = (props) => {
     }, [props.myId])
 
     return(
-        <div id='category__update--component'>
+        <div id='event__update--component'>
             <input value={ myId } placeholder='Id de Evento a actualizar' className='form-control' />
             <input onChange={ props.change } type='datetime-local' className='form-control' />
             <button onClick={ updateMyEvent } className='btn btn-primary'>Actualizar Evento</button>

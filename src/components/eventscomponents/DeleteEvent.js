@@ -1,19 +1,17 @@
-import React, { useState, useEffect } from 'react'
-import { url } from '../Const'
-import Swal from 'sweetalert2'
+import React, { useState, useEffect } from "react";
+import Swal from "sweetalert2";
+import { url } from "../Const";
 
-export const UpdateTeam = (props) => {
+export const DeleteEvent = (props) => {
     const[myId, setId] = useState('')
-    const updateMyTeam = () => {  
-        console.log(props.myname)
+    const deleteMyEvent = () => {  
         const requestOptions = {
-            method: 'PUT',
+            method: 'DELETE',
             headers: {
                 "Content-Type": "application/json"
-            },
-            body: JSON.stringify({ name: props.myname })           
+            }           
         }        
-        fetch(`${ url }/api/teams/update/${ myId }`, requestOptions)
+        fetch(`${ url }/api/events/delete/${ myId }`, requestOptions)
             .then(res => res.json())
             .then(data => {
                 console.log(data)
@@ -37,14 +35,13 @@ export const UpdateTeam = (props) => {
     }
 
     useEffect(() => {
-        setId(props.id)
-    }, [props.id])
+        setId(props.myId)
+    }, [props.myId])
 
     return(
-        <div id='container__update-team'>
-            <input value={ myId } placeholder='Nombre de equipo a eliminar' className='form-control' />
-            <input onChange={ props.change } placeholder='Nuevo nombre' className='form-control' />
-            <button onClick={ updateMyTeam } className='btn btn-primary'>Actualizar Equipo</button>
+        <div id='event__delete--component'>
+            <input value={ myId } placeholder='Id de Evento a eliminar' className='form-control' />
+            <button onClick={ deleteMyEvent } className='btn btn-primary'>Eliminar Evento</button>
         </div>
     )
 }

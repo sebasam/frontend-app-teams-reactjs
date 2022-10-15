@@ -17,7 +17,9 @@ export const DeleteTeam = (props) => {
                     'Excellent!',
                     `${ data.msg }`,
                     'success'
-                )     
+                ).then(() => {
+                    window.location.reload()
+                })     
             })
             .catch(err => {
                 Swal.fire(

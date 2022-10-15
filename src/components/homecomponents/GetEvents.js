@@ -2,7 +2,8 @@ import React, { useState, useEffect } from "react";
 import { url } from './../Const'
 
 export const GetEvents = (props) => {
-    const [sport, setSports] = useState([])    
+    const [sport, setSports] = useState([])
+    const [arr, setArr] = useState([])   
     const getAllEvents = () => {
         const requestOptions = {
             method: 'GET',
@@ -22,7 +23,8 @@ export const GetEvents = (props) => {
 
     useEffect(() => {
         getAllEvents()
-    }, [])
+        setArr(sport)
+    }, [arr.length !== sport.length])
 
     return(
         <div id='events'>
