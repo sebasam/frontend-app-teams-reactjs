@@ -5,6 +5,7 @@ import { Home } from "./Home";
 import Navbar from "./navbar";
 import { Teams } from "./Teams";
 import { Events } from './Events';
+import { Login } from './Login';
 
 export const App = () => {
     let container = {
@@ -20,7 +21,8 @@ export const App = () => {
             <Router>
                 <Navbar />
                 <Routes>
-                    <Route path="/"  element={ <Home /> } />
+                    <Route path="/"  element={ <Login /> } />
+                    <Route path="/home"  element={ <Home /> } />
                     <Route path="/teams"  element={ <Teams /> } />
                     <Route path="/categories"  element={ <Categories /> } />
                     <Route path="/events"  element={ <Events /> } />

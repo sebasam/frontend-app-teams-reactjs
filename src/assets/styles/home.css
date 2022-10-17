@@ -62,6 +62,9 @@
     height: 100%;
     display: grid;
 }
+#logout {
+    cursor: pointer;
+}
 .container-fluid {
     display: grid;
     grid-template-columns: repeat(2, 50%);
@@ -83,6 +86,9 @@
     grid-template-rows: auto;
     justify-items: center;
     align-items: center;
+}
+.home__image {
+    height: 50px;
 }
 span {
     background: rgba(255, 255, 255, 0.24);
