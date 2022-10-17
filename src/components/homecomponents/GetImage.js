@@ -26,7 +26,7 @@ export const GetImage = (props) => {
     },[props.name])
 
     return (
-        <img style={ style } src={path} />
+        <img className='home__image' style={ style } src={path} />
     )   
     
 }
